@@ -1,8 +1,10 @@
 const parser = require("xlsx");
-const dotenv = require("dotenv").config();
+const path = require('path');
+ require("dotenv").config();
 
 const getTodaysTopic = () => {
-  const workbook = parser.readFile(process.env.FILE_PATH);
+  const filePath = path.join(__dirname, process.env.FILE_PATH);
+  const workbook = parser.readFile(filePath);
   const topic = [];
   const today = new Date().toISOString().split("T")[0];
   let todayTopic = null;

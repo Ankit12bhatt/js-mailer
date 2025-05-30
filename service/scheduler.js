@@ -35,7 +35,8 @@ const scheduleNotification =  () => {
             return;
         } 
         const message = formatTopicMessage(data); 
-        await sendEmail("📚 Your JavaScript Topics for Today", message.replace(/\n/g, '<br>')) }
+        await sendEmail("📚 Your JavaScript Topics for Today", message.replace(/\n/g, '<br>'))
+     }
     cron.schedule("0 6 * * *", dataFetcher, { timezone: "Asia/Kolkata" });
     cron.schedule("* * * * *", dataFetcher, { timezone: "Asia/Kolkata" });
     cron.schedule("0 21 * * *", dataFetcher, { timezone: "Asia/Kolkata" });
